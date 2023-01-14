@@ -10,7 +10,7 @@ export default function App() {
           uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png',
         }} />
       </View>
-      <Text style={{ fontSize: 40, color: 'white', textAlign: 'center', marginTop: 100, marginBottom: 10}}>
+      <Text style={{ fontSize: 40, color: 'white', textAlign: 'center', marginTop: 100, marginBottom: 50}}>
         INSCRIPTION</Text>
       <Text style={{ color: 'white', textAlign: 'center', marginBottom: 50, marginLeft: 20, marginRight: 20,}}>
         Créez un compte pour sauvegarder vos recherches et mettre en favoris vos coups de coeur</Text>
@@ -22,6 +22,7 @@ export default function App() {
         <Text style={styles.Test}>Vous avez déjà un compte ?</Text>
         <Text style={styles.TestUnderline}>Connectez-vous ici</Text>
         <Button title="S'inscrire" />
+        <Button title="Continuer sans compte" />
       </View>
     </View>
   );
