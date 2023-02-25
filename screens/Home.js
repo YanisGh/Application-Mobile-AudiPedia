@@ -4,16 +4,18 @@ import { globalStyles } from '../globalStyles';
 
 export default function Home({navigation}){
 
-    const gos = () => {
-        navigation.navigate('ConnexionPage')
+    const goETron= () => {
+        navigation.navigate('AudiETron')
       }
-
-    // const goR8 = () => {
-    //     navigation.navigate('AudiR8')
-    //   }
-    // const goA1 = () => {
-    //     navigation.navigate('AudiA1')
-    //   }
+    const goR8 = () => {
+        navigation.navigate('AudiR8')
+      }
+    const goA1 = () => {
+        navigation.navigate('AudiA1')
+      }
+    const goAllModels = () =>{
+        navigation.navigate('allModels')
+    }
 
     return(
         <View style={globalStyles.container}>
@@ -26,7 +28,7 @@ export default function Home({navigation}){
             </View>
             <Text style={globalStyles.TextMenu}>Discover our new offerings</Text>
             <View style={globalStyles.menuHome}>   
-                    <TouchableOpacity onPress={gos}>
+                    <TouchableOpacity onPress={goETron}>
                         <ImageBackground
                         style={globalStyles.logoImgMenu}
                         source={{
@@ -34,7 +36,7 @@ export default function Home({navigation}){
                         }}><Text style={globalStyles.TextMenuImg}>New 2023 Audi E-Tron GT</Text>
                         </ImageBackground>  
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={gos}>
+                    <TouchableOpacity onPress={goR8}>
                         <ImageBackground
                         style={globalStyles.logoImgMenu}
                         source={{
@@ -42,7 +44,7 @@ export default function Home({navigation}){
                         }}><Text style={globalStyles.TextMenuImgR8}>Audi R8</Text>
                         </ImageBackground>  
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={gos}>
+                    <TouchableOpacity onPress={goA1}>
                         <ImageBackground
                         style={globalStyles.logoImgMenu}
                         source={{
@@ -51,7 +53,7 @@ export default function Home({navigation}){
                         </ImageBackground>  
                     </TouchableOpacity>
                     <Text style={globalStyles.TextMenu}>More cars</Text>
-                    <TouchableOpacity onPress={gos}>
+                    <TouchableOpacity onPress={goAllModels}>
                         <Image
                         style={globalStyles.logoPlusMenu}
                         source={require('../images/icons/system-add-large-2x.png')}

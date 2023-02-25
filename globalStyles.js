@@ -10,6 +10,11 @@ export const globalStyles = StyleSheet.create({
       backgroundColor: 'black',
       alignItems: 'center', 
     },
+    container2: {
+      backgroundColor: 'red',
+      color: 'white',
+      width: 400,
+    },
     containerMenu :{
       flex: 1,
       backgroundColor: 'black',

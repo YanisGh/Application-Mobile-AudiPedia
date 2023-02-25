@@ -8,9 +8,3 @@ export default function About(){
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container:{
-        padding: 24
-    }
-});

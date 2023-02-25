@@ -12,6 +12,8 @@ import Navigator from './routes/homeStack'
 //     'audi-bold-extended': require('./assets/fonts/AudiType-ExtendedBold_4.03.otf')
 //   });
 
+
+
 export default function App(){
   // const [fontsLoaded, setFontsLoaded] = useState(false);
   
