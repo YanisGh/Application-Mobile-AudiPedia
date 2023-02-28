@@ -33,7 +33,7 @@ export default function Home({navigation}){
                         style={globalStyles.logoImgMenu}
                         source={{
                         uri: 'https://uhdwallpapers.org/uploads/converted/21/02/10/audi-e-tron-gt-2021-1920x1080_947678-mm-90.webp',
-                        }}><Text style={globalStyles.TextMenuImg}>New 2023 Audi E-Tron GT</Text>
+                        }}><Text style={globalStyles.TextMenuImg}>New Audi E-Tron GT</Text>
                         </ImageBackground>  
                     </TouchableOpacity>
                     <TouchableOpacity onPress={goR8}>
@@ -52,12 +52,13 @@ export default function Home({navigation}){
                         }}><Text style={globalStyles.TextMenuImgA1}>Rediscover the classics</Text>
                         </ImageBackground>  
                     </TouchableOpacity>
-                    <Text style={globalStyles.TextMenu}>More cars</Text>
                     <TouchableOpacity onPress={goAllModels}>
-                        <Image
-                        style={globalStyles.logoPlusMenu}
-                        source={require('../images/icons/system-add-large-2x.png')}
-                        />
+                        <ImageBackground
+                        style={globalStyles.logoImgMenu}
+                        source={{
+                            uri : 'https://assetseu-h2.izmocars.com/userfiles/105587/header_gammeaudisport.jpg',
+                        }}><Text style={globalStyles.TextMenuImgAllModels}>All models</Text>
+                        </ImageBackground>  
                     </TouchableOpacity>
             </View>
         </View>

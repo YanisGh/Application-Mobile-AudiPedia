@@ -24,19 +24,22 @@ export default function ConnexionPage({ navigation }) {
         <Text style={{ fontSize: 35, color: 'white', textAlign: 'center', marginTop: 100, marginBottom: 50}}>
           Create your account</Text>
         <Text style={{ color: 'white', textAlign: 'center', marginBottom: 50, marginLeft: 20, marginRight: 20}}>
-          Create an account to save your favorite models and more</Text>
+          Create an account to save your favorite models and more.</Text>
         <View style={globalStyles.containerForm}>
           <Text style={globalStyles.Text}>Your username or e-mail adress :</Text>
           <TextInput style={globalStyles.input} placeholder="Username or e-mail adress" />
           <Text style={globalStyles.Text}>Your password :</Text>
           <TextInput style={globalStyles.input} placeholder="Password" />
-          <Pressable onPress={goHome}>
-            <Text style={globalStyles.TextMenu}>Sign up</Text>
-          </Pressable>
           <Text style={globalStyles.Test}>Already have an account ?</Text>
           <Pressable onPress={goHome}>
-            <Text style={globalStyles.TextMenu}>Sign in</Text>
+            <Text style={globalStyles.TestUnderline}>Sign in here</Text>
           </Pressable>
+          <View style={{alignItems: "center"}}>
+          <Pressable style={globalStyles.Button}onPress={goHome}>
+            <Text style={{color: 'white', textAlign: 'center',  textDecorationLine: 'underline',}}>
+              Sign up</Text>
+          </Pressable>
+          </View>
           <Pressable onPress={goHome}>
             <Text style={globalStyles.TextMenu}>Browse without an account</Text>
           </Pressable>

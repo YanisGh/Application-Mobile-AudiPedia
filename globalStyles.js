@@ -10,10 +10,11 @@ export const globalStyles = StyleSheet.create({
       backgroundColor: 'black',
       alignItems: 'center', 
     },
-    container2: {
-      backgroundColor: 'red',
+    containerInfoCar: {
+      backgroundColor: '#212121',
       color: 'white',
       width: 400,
+      textAlign: "left",
     },
     containerMenu :{
       flex: 1,
@@ -23,12 +24,12 @@ export const globalStyles = StyleSheet.create({
     },
     menuHome :{
       alignItems: "center",
-      height: 500,
+      height: 650,
       width: 500,
       backgroundColor: 'black',
     },
     TextMenu :{
-      textAlign: "left",
+      textAlign: "center",
       marginTop: 10,
       marginBottom: 5,
       color: "white",
@@ -42,19 +43,43 @@ export const globalStyles = StyleSheet.create({
       fontSize: 12,
       marginRight: 25,
     },
+    TextMenuCar:{
+      textAlign: "left",
+      marginTop: 10,
+      marginBottom: 5,
+      color: "white",
+      fontSize: 12,
+      marginLeft: 10,
+    },
+    TextMenuCarBold:{
+      fontWeight: "bold",
+      textAlign: "left",
+      marginTop: 10,
+      marginBottom: 5,
+      color: "white",
+      fontSize: 15,
+      marginLeft: 10,
+    },
     TextMenuImgR8 :{
       textAlign: "left",
       marginTop: 10,
       marginBottom: 5,
       color: "white",
       fontSize: 12,
-      marginLeft: 50,
+      marginLeft: 40,
     },
     TextMenuImgA1 :{
       textAlign: "center",
       marginTop: 10,
       marginBottom: 5,
       color: "black",
+      fontSize: 12,
+    },
+    TextMenuImgAllModels :{
+      textAlign: "center",
+      marginTop: 10,
+      marginBottom: 5,
+      color: "white",
       fontSize: 12,
     },
     logoImgMenu:{
@@ -77,6 +102,7 @@ export const globalStyles = StyleSheet.create({
       marginRight: 10,
       borderWidth: 1,
       padding: 10,
+      marginBottom: 10,
     },
     Text:{
       color: 'white',
@@ -85,12 +111,22 @@ export const globalStyles = StyleSheet.create({
     Test:{
       color: 'white',
       textAlign: 'center',
-      marginTop: 10,
+      fontSize: 13,
     },
     TestUnderline:{
       color: 'white',
       textAlign: 'center',
       textDecorationLine: 'underline',
+    },
+    Button:{
+      borderRadius: 6,
+      alignContent: "center",
+      backgroundColor: '#212121',
+      marginTop: 40,
+      marginBottom: 20,
+      padding: 20,
+      width: 150
+
     },
     logoImg:{
       width: 100,
