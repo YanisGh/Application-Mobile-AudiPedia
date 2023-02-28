@@ -8,8 +8,8 @@ import { globalStyles } from '../globalStyles';
 export default function AudiR8(){
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
-    
-    const url ="https://public.opendatasoft.com/api/records/1.0/search/?dataset=all-vehicles-model&q=&facet=make&facet=model&facet=cylinders&facet=drive&facet=fueltype&facet=trany&facet=vclass&facet=year&refine.make=Audi&refine.model=R8"
+    const Audi = 'R8';
+    const url ="https://public.opendatasoft.com/api/records/1.0/search/?dataset=all-vehicles-model&q=&facet=make&facet=model&facet=cylinders&facet=drive&facet=fueltype&facet=trany&facet=vclass&facet=year&refine.make=Audi&refine.model="+ Audi +""
     
     useEffect(() =>{
         fetch(url)
@@ -45,7 +45,7 @@ export default function AudiR8(){
             
             data.map((facetGroup, index) => (
                 <View style={globalStyles.containerInfoCar} key={index}>
-                    <Text style={globalStyles.TextMenuCarBold}>{facetGroup.name} :</Text>
+                    <Text style={globalStyles.TextMenuCarBold} key={index}>{facetGroup.name} :</Text>
                     {facetGroup.facets.map((facet) => (
                             <Text style={globalStyles.TextMenuCar}>{facet.name}</Text>
                     ))}

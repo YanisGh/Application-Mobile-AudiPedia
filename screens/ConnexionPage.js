@@ -21,9 +21,9 @@ export default function ConnexionPage({ navigation }) {
               uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png',
             }} />
         </View>
-        <Text style={{ fontSize: 35, color: 'white', textAlign: 'center', marginTop: 100, marginBottom: 50}}>
+        <Text style={{ fontSize: 35, color: 'white', textAlign: 'center', marginTop: 100, marginBottom: 50, fontFamily: "audi-regular-extended"}}>
           Create your account</Text>
-        <Text style={{ color: 'white', textAlign: 'center', marginBottom: 50, marginLeft: 20, marginRight: 20}}>
+        <Text style={{ color: 'white', textAlign: 'center', marginBottom: 50, marginLeft: 20, marginRight: 20, fontFamily: "audi-regular"}}>
           Create an account to save your favorite models and more.</Text>
         <View style={globalStyles.containerForm}>
           <Text style={globalStyles.Text}>Your username or e-mail adress :</Text>

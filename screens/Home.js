@@ -26,7 +26,7 @@ export default function Home({navigation}){
                     uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png',
                 }} />
             </View>
-            <Text style={globalStyles.TextMenu}>Discover our new offerings</Text>
+            <Text style={globalStyles.TextMenu}>Vorsprung durch Technik</Text>
             <View style={globalStyles.menuHome}>   
                     <TouchableOpacity onPress={goETron}>
                         <ImageBackground

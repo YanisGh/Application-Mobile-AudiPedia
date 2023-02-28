@@ -11,7 +11,7 @@ export const globalStyles = StyleSheet.create({
       alignItems: 'center', 
     },
     containerInfoCar: {
-      backgroundColor: '#212121',
+      backgroundColor: '#1a1a1a',
       color: 'white',
       width: 400,
       textAlign: "left",
@@ -34,6 +34,7 @@ export const globalStyles = StyleSheet.create({
       marginBottom: 5,
       color: "white",
       fontSize: 12,
+      fontFamily: "audi-regular"
     },
     TextMenuImg:{
       textAlign: "right",
@@ -121,7 +122,7 @@ export const globalStyles = StyleSheet.create({
     Button:{
       borderRadius: 6,
       alignContent: "center",
-      backgroundColor: '#212121',
+      backgroundColor: '#1a1a1a',
       marginTop: 40,
       marginBottom: 20,
       padding: 20,
