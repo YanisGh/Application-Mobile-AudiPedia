@@ -45,7 +45,7 @@ export default function AudiR8(){
             
             data.map((facetGroup, index) => (
                 <View style={globalStyles.containerInfoCar} key={index}>
-                    <Text style={globalStyles.TextMenuCarBold} key={index}>{facetGroup.name} :</Text>
+                    <Text style={globalStyles.TextMenuCarBold}>{facetGroup.name} :</Text>
                     {facetGroup.facets.map((facet) => (
                             <Text style={globalStyles.TextMenuCar}>{facet.name}</Text>
                     ))}

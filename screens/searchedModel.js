@@ -3,11 +3,11 @@ import { Button, StyleSheet, Text, TextInput, View, Image, ImageBackground, Touc
 import { ScrollView } from "react-native-gesture-handler";
 import { globalStyles } from '../globalStyles';
 
-export default function allModels({navigation}){
+export default function searchedModel({ navigation }){
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
-    
-    const url ="https://public.opendatasoft.com/api/records/1.0/search/?dataset=all-vehicles-model&q=&sort=year&facet=model&refine.make=Audi"
+    const model = navigation.getParam('name');
+    const url ="https://public.opendatasoft.com/api/records/1.0/search/?dataset=all-vehicles-model&q=&facet=make&facet=model&facet=cylinders&facet=drive&facet=fueltype&facet=trany&facet=vclass&facet=year&refine.make=Audi&refine.model="+ model +""
     
     useEffect(() =>{
         fetch(url)
@@ -31,22 +31,21 @@ export default function allModels({navigation}){
             <Text style={globalStyles.TextMenu}></Text>
             <View style={globalStyles.menuHome}>   
             <TouchableOpacity>
-                        <ImageBackground
-                        style={globalStyles.logoImgMenu}
-                        source={{
-                            uri : 'https://assetseu-h2.izmocars.com/userfiles/105587/header_gammeaudisport.jpg',
-                        }}>
-                        </ImageBackground> 
+                <ImageBackground
+                style={globalStyles.logoImgMenu}
+                source={{
+                uri: 'https://media4.speedcafe.com/wp-content/uploads/2020/09/637241-scaled.jpg',
+                }}>
+                </ImageBackground>  
             </TouchableOpacity>
             <ScrollView>
             {loading ? (<Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>) : 
             
             data.map((facetGroup, index) => (
                 <View style={globalStyles.containerInfoCar} key={index}>
+                    <Text style={globalStyles.TextMenuCarBold}>{facetGroup.name} :</Text>
                     {facetGroup.facets.map((facet) => (
-                        <TouchableOpacity onPress={() => navigation.navigate('searchedModel', facet)}>
                             <Text style={globalStyles.TextMenuCar}>{facet.name}</Text>
-                        </TouchableOpacity>
                     ))}
                 </View>
 

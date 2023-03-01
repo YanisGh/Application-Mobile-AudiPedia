@@ -6,6 +6,7 @@ import AudiR8 from "../screens/AudiR8";
 import AudiA1 from "../screens/AudiA1";
 import allModels from "../screens/allModels";
 import AudiETron from "../screens/AudiETron";
+import searchedModel from "../screens/searchedModel"
 
 const screens = {
     
@@ -41,6 +42,12 @@ const screens = {
     },
     AudiETron: {
         screen: AudiETron,
+        navigationOptions: {
+            headerShown: false,
+          }
+    },
+    searchedModel: {
+        screen: searchedModel,
         navigationOptions: {
             headerShown: false,
           }
