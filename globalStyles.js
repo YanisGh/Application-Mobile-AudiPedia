@@ -34,9 +34,10 @@ export const globalStyles = StyleSheet.create({
       marginBottom: 5,
       color: "white",
       fontSize: 12,
-      fontFamily: "audi-regular"
+      fontFamily: "audi-regular-extended"
     },
     TextMenuImg:{
+      fontFamily: "audi-bold-extended",
       textAlign: "right",
       marginTop: 10,
       marginBottom: 5,
@@ -45,6 +46,7 @@ export const globalStyles = StyleSheet.create({
       marginRight: 25,
     },
     TextMenuCar:{
+      fontFamily: "audi-regular-extended",
       textAlign: "left",
       marginTop: 10,
       marginBottom: 5,
@@ -53,7 +55,7 @@ export const globalStyles = StyleSheet.create({
       marginLeft: 10,
     },
     TextMenuCarBold:{
-      fontWeight: "bold",
+      fontFamily: "audi-bold-extended",
       textAlign: "left",
       marginTop: 10,
       marginBottom: 5,
@@ -62,6 +64,7 @@ export const globalStyles = StyleSheet.create({
       marginLeft: 10,
     },
     TextMenuImgR8 :{
+      fontFamily: "audi-bold-extended",
       textAlign: "left",
       marginTop: 10,
       marginBottom: 5,
@@ -70,6 +73,7 @@ export const globalStyles = StyleSheet.create({
       marginLeft: 40,
     },
     TextMenuImgA1 :{
+      fontFamily: "audi-bold-extended",
       textAlign: "center",
       marginTop: 10,
       marginBottom: 5,
@@ -77,6 +81,7 @@ export const globalStyles = StyleSheet.create({
       fontSize: 12,
     },
     TextMenuImgAllModels :{
+      fontFamily: "audi-bold-extended",
       textAlign: "center",
       marginTop: 10,
       marginBottom: 5,
@@ -97,6 +102,7 @@ export const globalStyles = StyleSheet.create({
       width: 300,
     },
     input:{
+      fontFamily: "audi-regular",
       backgroundColor:'white',
       color: 'black',
       height: 40,
@@ -106,20 +112,24 @@ export const globalStyles = StyleSheet.create({
       marginBottom: 10,
     },
     Text:{
+      fontFamily: "audi-regular",
       color: 'white',
       marginTop: 5,
     },
     Test:{
+      fontFamily: "audi-regular",
       color: 'white',
       textAlign: 'center',
       fontSize: 13,
     },
     TestUnderline:{
+      fontFamily: "audi-bold",
       color: 'white',
       textAlign: 'center',
       textDecorationLine: 'underline',
     },
     Button:{
+      fontFamily: "audi-bold",
       borderRadius: 6,
       alignContent: "center",
       backgroundColor: '#1a1a1a',

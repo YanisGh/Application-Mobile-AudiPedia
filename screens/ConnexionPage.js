@@ -36,7 +36,7 @@ export default function ConnexionPage({ navigation }) {
           </Pressable>
           <View style={{alignItems: "center"}}>
           <Pressable style={globalStyles.Button}onPress={goHome}>
-            <Text style={{color: 'white', textAlign: 'center',  textDecorationLine: 'underline',}}>
+            <Text style={globalStyles.TestUnderline}>
               Sign up</Text>
           </Pressable>
           </View>
