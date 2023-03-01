@@ -1,10 +1,5 @@
-import { Button, StyleSheet, Text, TextInput, View, Image, Pressable } from 'react-native';
+import { Text, TextInput, View, Image, Pressable } from 'react-native';
 import { globalStyles } from '../globalStyles';
-import { useFonts } from 'expo-font';
-import { useState } from 'react';
-import { AppLoading } from 'expo';
-
-
 
 export default function ConnexionPage({ navigation }) {
 
