@@ -61,7 +61,7 @@ export const globalStyles = StyleSheet.create({
       marginBottom: 5,
       color: "white",
       fontSize: 15,
-      marginLeft: 10,
+      marginLeft: 6,
     },
     TextMenuImgR8 :{
       fontFamily: "audi-bold-extended",
@@ -143,5 +143,11 @@ export const globalStyles = StyleSheet.create({
       width: 100,
       height: 35,
       resizeMode: 'center',
+    }, 
+    iconFacet:{
+      width: 20, 
+      height: 20,
+      marginLeft: 6,
+      tintColor: 'white'
     }
 });

@@ -39,25 +39,24 @@ export default function allModels({navigation}){
                         }}>
                         </ImageBackground> 
             </TouchableOpacity>
+            <Text style={{color : "white", fontFamily : "audi-bold", marginBottom : 5}}>Tap on a model to learn more about it's specifications</Text>
             <ScrollView>
             {loading ? (
                 <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>
-                ) : data && data.length > 0 ? (  
-                <ScrollView>
-                    {data.map((facetGroup, index) => (
-                    <View style={globalStyles.containerInfoCar} key={index}>
-                        <Text style={globalStyles.TextMenuCarBold}>{facetGroup.name} :</Text>
-                        {facetGroup.facets.map((facet, index) => (
-                            <TouchableOpacity onPress={() => navigation.navigate('searchedModel', facet)}>
-                                <Text style={globalStyles.TextMenuCar}>{facet.name}</Text>
-                            </TouchableOpacity>
-                        ))}
-                    </View>
-                    ))}
-                </ScrollView>
                 ) : (
-                    <Text style={globalStyles.TextMenuCar}>No results found.</Text>
-                )}
+                data.map((facetGroup, index) => (
+                <View style={globalStyles.containerInfoCar} key={index}>
+                    <Text style={globalStyles.TextMenuCarBold} key={index}>
+                        {facetGroup.name === 'vclass' ? 'Class' : facetGroup.name === 'trany' ? 'Transmission' : facetGroup.name === 'fueltype' ? 'Fuel Type' : facetGroup.name.charAt(0).toUpperCase() + facetGroup.name.slice(1)} :
+                    </Text>
+                    {facetGroup.facets.map((facet) => (
+                    <TouchableOpacity onPress={() => navigation.navigate('searchedModel', facet)}>
+                        <Text style={globalStyles.TextMenuCar} key={index}>{facet.name}</Text>
+                    </TouchableOpacity>
+                    ))}
+                </View>
+                ))
+            )}
             </ScrollView>
             </View>
         </View>

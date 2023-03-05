@@ -43,16 +43,58 @@ export default function searchedModel({ navigation }){
             {loading ? (
                 <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>
                 ) : data && data.length > 0 ? (
-                <ScrollView>
-                    {data.map((facetGroup, index) => (
-                    <View style={globalStyles.containerInfoCar} key={index}>
-                        <Text style={globalStyles.TextMenuCarBold}>{facetGroup.name} :</Text>
-                        {facetGroup.facets.map((facet) => (
-                            <Text style={globalStyles.TextMenuCar}>{facet.name}</Text>
-                        ))}
-                    </View>
-                    ))}
-                </ScrollView>
+                  <ScrollView>
+                  {(
+                      data.map((facetGroup, index) => (
+                      <View style={globalStyles.containerInfoCar} key={index}>
+                          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                          {facetGroup.name === 'vclass' ? (
+                              <Image
+                              source={require('../images/icons/class.png')}
+                              style={globalStyles.iconFacet}
+                              />
+                          ) : facetGroup.name === 'trany' ? (
+                              <Image
+                              source={require('../images/icons/transmission.png')}
+                              style={globalStyles.iconFacet}
+                              />
+                          ) : facetGroup.name === 'fueltype' ? (
+                              <Image
+                              source={require('../images/icons/fuel-type.png')}
+                              style={globalStyles.iconFacet}
+                              />
+                          ) : facetGroup.name === 'drive' ? (
+                              <Image
+                              source={require('../images/icons/drive.png')}
+                              style={globalStyles.iconFacet}
+                              />
+                          ) : facetGroup.name === 'year' ? (
+                              <Image
+                              source={require('../images/icons/year.png')}
+                              style={globalStyles.iconFacet}
+                              />
+                          ) : facetGroup.name === 'cylinders' ? (
+                              <Image
+                              source={require('../images/icons/engine.png')}
+                              style={globalStyles.iconFacet}
+                              />
+                          ) : (
+                              <Image
+                              source={require('../images/icons/car-.png')}
+                              style={globalStyles.iconFacet}
+                              />
+                          )}
+                          <Text style={globalStyles.TextMenuCarBold} key={index}>
+                              {facetGroup.name === 'vclass' ? 'Class' : facetGroup.name === 'trany' ? 'Transmission' : facetGroup.name === 'fueltype' ? 'Fuel Type' : facetGroup.name.charAt(0).toUpperCase() + facetGroup.name.slice(1)} :
+                          </Text>
+                          </View>
+                          {facetGroup.facets.map((facet) => (
+                              <Text style={globalStyles.TextMenuCar}>{facet.name}</Text>
+                          ))}
+                      </View>
+                      ))
+                  )}
+                  </ScrollView>
                 ) : (
                     <Text style={globalStyles.TextMenuCar}>No results found.</Text>
                 )}
