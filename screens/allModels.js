@@ -7,6 +7,7 @@ export default function allModels({navigation}){
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     
+    
     const url ="https://public.opendatasoft.com/api/records/1.0/search/?dataset=all-vehicles-model&q=&sort=year&facet=model&refine.make=Audi"
     
     useEffect(() =>{
@@ -39,18 +40,24 @@ export default function allModels({navigation}){
                         </ImageBackground> 
             </TouchableOpacity>
             <ScrollView>
-            {loading ? (<Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>) : 
-            
-            data.map((facetGroup, index) => (
-                <View style={globalStyles.containerInfoCar} key={index}>
-                    {facetGroup.facets.map((facet) => (
-                        <TouchableOpacity onPress={() => navigation.navigate('searchedModel', facet)}>
-                            <Text style={globalStyles.TextMenuCar}>{facet.name}</Text>
-                        </TouchableOpacity>
+            {loading ? (
+                <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>
+                ) : data && data.length > 0 ? (  
+                <ScrollView>
+                    {data.map((facetGroup, index) => (
+                    <View style={globalStyles.containerInfoCar} key={index}>
+                        <Text style={globalStyles.TextMenuCarBold}>{facetGroup.name} :</Text>
+                        {facetGroup.facets.map((facet, index) => (
+                            <TouchableOpacity onPress={() => navigation.navigate('searchedModel', facet)}>
+                                <Text style={globalStyles.TextMenuCar}>{facet.name}</Text>
+                            </TouchableOpacity>
+                        ))}
+                    </View>
                     ))}
-                </View>
-
-            ))}
+                </ScrollView>
+                ) : (
+                    <Text style={globalStyles.TextMenuCar}>No results found.</Text>
+                )}
             </ScrollView>
             </View>
         </View>

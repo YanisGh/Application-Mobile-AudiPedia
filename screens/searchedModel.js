@@ -6,7 +6,8 @@ import { globalStyles } from '../globalStyles';
 export default function searchedModel({ navigation }){
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
-    const model = navigation.getParam('name');
+    const model = (navigation.getParam('name'));
+    let nbModels = 0;
     const url ="https://public.opendatasoft.com/api/records/1.0/search/?dataset=all-vehicles-model&q=&facet=make&facet=model&facet=cylinders&facet=drive&facet=fueltype&facet=trany&facet=vclass&facet=year&refine.make=Audi&refine.model="+ model +""
     
     useEffect(() =>{
@@ -19,39 +20,45 @@ export default function searchedModel({ navigation }){
           .catch((error) => console.error(error));
       }, []);
 
-    return(
+      return (
         <View style={globalStyles.container}>
-            <View style={globalStyles.logoContainer}>
-                <Image
-                    style={globalStyles.logoImg}
-                    source={{
-                    uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png',
-                }} />
-            </View>
-            <Text style={globalStyles.TextMenu}></Text>
-            <View style={globalStyles.menuHome}>   
+          <View style={globalStyles.logoContainer}>
+            <Image
+              style={globalStyles.logoImg}
+              source={{
+                uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png',
+              }}
+            />
+          </View>
+          <Text style={globalStyles.TextMenu}></Text>
+          <View style={globalStyles.menuHome}>
             <TouchableOpacity>
-                <ImageBackground
+              <ImageBackground
                 style={globalStyles.logoImgMenu}
                 source={{
-                uri: 'https://media4.speedcafe.com/wp-content/uploads/2020/09/637241-scaled.jpg',
-                }}>
-                </ImageBackground>  
+                  uri: 'https://media4.speedcafe.com/wp-content/uploads/2020/09/637241-scaled.jpg',
+                }}
+              ></ImageBackground>
             </TouchableOpacity>
-            <ScrollView>
-            {loading ? (<Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>) : 
-            
-            data.map((facetGroup, index) => (
-                <View style={globalStyles.containerInfoCar} key={index}>
-                    <Text style={globalStyles.TextMenuCarBold}>{facetGroup.name} :</Text>
-                    {facetGroup.facets.map((facet) => (
+            {loading ? (
+                <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>
+                ) : data && data.length > 0 ? (
+                <ScrollView>
+                    {data.map((facetGroup, index) => (
+                    <View style={globalStyles.containerInfoCar} key={index}>
+                        <Text style={globalStyles.TextMenuCarBold}>{facetGroup.name} :</Text>
+                        {facetGroup.facets.map((facet) => (
                             <Text style={globalStyles.TextMenuCar}>{facet.name}</Text>
+                        ))}
+                    </View>
                     ))}
-                </View>
-
-            ))}
-            </ScrollView>
-            </View>
+                </ScrollView>
+                ) : (
+                    <Text style={globalStyles.TextMenuCar}>No results found.</Text>
+                )}
+          </View>
         </View>
-    )
+      );
+      
+    
 }
