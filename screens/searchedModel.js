@@ -44,7 +44,7 @@ export default function searchedModel({ navigation }){
                 <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>
                 ) : data && data.length > 0 ? (
                   <ScrollView>
-                  {(
+                  {
                       data.map((facetGroup, index) => (
                       <View style={globalStyles.containerInfoCar} key={index}>
                           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -93,7 +93,7 @@ export default function searchedModel({ navigation }){
                           ))}
                       </View>
                       ))
-                  )}
+                  }
                   </ScrollView>
                 ) : (
                     <Text style={globalStyles.TextMenuCar}>No results found.</Text>

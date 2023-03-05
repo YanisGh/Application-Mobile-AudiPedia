@@ -148,6 +148,7 @@ export const globalStyles = StyleSheet.create({
       width: 20, 
       height: 20,
       marginLeft: 6,
+      marginTop: 5,
       tintColor: 'white'
     }
 });
