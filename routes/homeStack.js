@@ -3,10 +3,10 @@ import { createAppContainer } from "react-navigation";
 import Home from "../screens/Home";
 import ConnexionPage from "../screens/ConnexionPage";
 import AudiR8 from "../screens/AudiR8";
-import AudiA1 from "../screens/AudiA1";
 import allModels from "../screens/allModels";
 import AudiETron from "../screens/AudiETron";
 import searchedModel from "../screens/searchedModel"
+import AudiSQ5 from "../screens/AudiSQ5";
 
 const screens = {
     
@@ -34,8 +34,8 @@ const screens = {
             headerShown: false,
           }
     },
-    AudiA1: {
-        screen: AudiA1,
+    AudiSQ5: {
+        screen: AudiSQ5,
         navigationOptions: {
             headerShown: false,
           }

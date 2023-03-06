@@ -27,6 +27,7 @@ export const globalStyles = StyleSheet.create({
       height: 650,
       width: 500,
       backgroundColor: 'black',
+      marginTop: 20
     },
     TextMenu :{
       textAlign: "center",
@@ -72,11 +73,12 @@ export const globalStyles = StyleSheet.create({
       fontSize: 12,
       marginLeft: 40,
     },
-    TextMenuImgA1 :{
+    TextMenuImgSQ5 :{
       fontFamily: "audi-bold-extended",
-      textAlign: "center",
-      marginTop: 10,
+      textAlign: "right",
+      marginTop: 15,
       marginBottom: 5,
+      marginRight: 60,
       color: "black",
       fontSize: 12,
     },

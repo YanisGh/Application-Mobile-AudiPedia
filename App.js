@@ -15,7 +15,7 @@ export default function App(){
   React.useEffect(() => {
     setTimeout(() => {
       setShowSplash(false);
-    }, 2000);
+    }, 1500);
   }, []);
   
   if(showSplash || !fontsLoaded){

@@ -1,15 +1,13 @@
 import React, {useState, useEffect} from "react";
-import { Button, StyleSheet, Text, TextInput, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
+import { Text, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { json } from "react-router-dom";
 import { globalStyles } from '../globalStyles';
 
-export default function AudiA1(){
+export default function AudiSQ5(){
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     
-    const url ="https://public.opendatasoft.com/api/records/1.0/search/?dataset=all-vehicles-model&q=&facet=make&facet=model&facet=cylinders&facet=drive&facet=fueltype&facet=trany&facet=vclass&facet=year&refine.make=Audi&refine.model=R8"
+    const url ="https://public.opendatasoft.com/api/records/1.0/search/?dataset=all-vehicles-model&q=&facet=make&facet=model&facet=cylinders&facet=drive&facet=fueltype&facet=trany&facet=vclass&facet=year&refine.make=Audi&refine.model=SQ5"
     
     useEffect(() =>{
         fetch(url)
@@ -36,7 +34,7 @@ export default function AudiA1(){
                 <ImageBackground
                 style={globalStyles.logoImgMenu}
                 source={{
-                uri: 'https://i.ytimg.com/vi/v8-9G2Q3fAo/maxresdefault.jpg',
+                uri: 'https://cdn.motor1.com/images/mgl/eJZqP/s1/2021-audi-sq5-sportback-tdi.jpg',
                 }}>
                 </ImageBackground>  
             </TouchableOpacity>

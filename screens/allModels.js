@@ -31,28 +31,39 @@ export default function allModels({navigation}){
             </View>
             <Text style={globalStyles.TextMenu}></Text>
             <View style={globalStyles.menuHome}>   
-            <TouchableOpacity>
-                        <ImageBackground
-                        style={globalStyles.logoImgMenu}
-                        source={{
-                            uri : 'https://assetseu-h2.izmocars.com/userfiles/105587/header_gammeaudisport.jpg',
-                        }}>
-                        </ImageBackground> 
-            </TouchableOpacity>
-            <Text style={{color : "white", fontFamily : "audi-bold", marginBottom : 5}}>Tap on a model to learn more about it's specifications</Text>
+            <ImageBackground
+            style={globalStyles.logoImgMenu}
+            source={{
+                uri : 'https://assetseu-h2.izmocars.com/userfiles/105587/header_gammeaudisport.jpg',
+            }}>
+            </ImageBackground> 
+            <Text style={{color : "white", fontFamily : "audi-bold-extended", marginBottom : 7}}>Tap on a model for more details.</Text>
             <ScrollView>
             {loading ? (
                 <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>
                 ) : (
                 data.map((facetGroup, index) => (
-                <View style={globalStyles.containerInfoCar} key={index}>
+                    <View style={globalStyles.containerInfoCar} key={index}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    {facetGroup.name === 'make' || facetGroup.name === 'model' ? (
+                        <Image
+                        source={require('../images/icons/car-.png')}
+                        style={globalStyles.iconFacet}
+                        />
+                    ) : (
+                        <Image
+                        source={require('../images/icons/car-.png')}
+                        style={globalStyles.iconFacet}
+                        />
+                    )}
                     <Text style={globalStyles.TextMenuCarBold} key={index}>
                         {facetGroup.name === 'vclass' ? 'Class' : facetGroup.name === 'trany' ? 'Transmission' : facetGroup.name === 'fueltype' ? 'Fuel Type' : facetGroup.name.charAt(0).toUpperCase() + facetGroup.name.slice(1)} :
                     </Text>
+                    </View>
                     {facetGroup.facets.map((facet) => (
-                    <TouchableOpacity onPress={() => navigation.navigate('searchedModel', facet)}>
-                        <Text style={globalStyles.TextMenuCar} key={index}>{facet.name}</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('searchedModel', facet)}>
+                            <Text style={globalStyles.TextMenuCar} key={index}>{facet.name}</Text>
+                        </TouchableOpacity>
                     ))}
                 </View>
                 ))
