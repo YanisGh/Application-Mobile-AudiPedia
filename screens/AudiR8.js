@@ -41,12 +41,12 @@ export default function AudiR8(){
                 </ImageBackground>  
             </TouchableOpacity>
             <ScrollView>
-            {loading ? (
-                <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>
+                {loading ? (
+                    <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>
                 ) : (
-                data.map((facetGroup, index) => (
-                <View style={globalStyles.containerInfoCar} key={index}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center'}}>
+                    data.map((facetGroup, index) => (
+                    <View style={globalStyles.containerInfoCar} key={index}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         {facetGroup.name === 'vclass' ? (
                             <Image
                             source={require('../images/icons/class.png')}
@@ -83,16 +83,16 @@ export default function AudiR8(){
                             style={globalStyles.iconFacet}
                             />
                         )}
-                        <Text style={globalStyles.TextMenuCarBold} key={index}>
+                        <Text style={globalStyles.TextMenuCarBold} key={facetGroup.name}>
                             {facetGroup.name === 'vclass' ? 'Class' : facetGroup.name === 'trany' ? 'Transmission' : facetGroup.name === 'fueltype' ? 'Fuel Type' : facetGroup.name.charAt(0).toUpperCase() + facetGroup.name.slice(1)} :
                         </Text>
+                        </View>
+                        {facetGroup.facets.map((facet, index) => (
+                        <Text style={globalStyles.TextMenuCar} key={`${facetGroup.name}-${index}`}>{facet.name}</Text>
+                        ))}
                     </View>
-                    {facetGroup.facets.map((facet) => (
-                        <Text style={globalStyles.TextMenuCar}>{facet.name}</Text>
-                    ))}
-                </View>
-                ))
-            )}
+                    ))
+                )}
             </ScrollView>
             </View>
         </View>

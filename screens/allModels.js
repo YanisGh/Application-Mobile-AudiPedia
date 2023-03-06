@@ -43,7 +43,7 @@ export default function allModels({navigation}){
                 <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>
                 ) : (
                 data.map((facetGroup, index) => (
-                    <View style={globalStyles.containerInfoCar} key={index}>
+                    <View style={globalStyles.containerInfoCar} key={`group-${index}`}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     {facetGroup.name === 'make' || facetGroup.name === 'model' ? (
                         <Image
@@ -56,13 +56,13 @@ export default function allModels({navigation}){
                         style={globalStyles.iconFacet}
                         />
                     )}
-                    <Text style={globalStyles.TextMenuCarBold} key={index}>
+                    <Text style={globalStyles.TextMenuCarBold} key={`group-${index}`}>
                         {facetGroup.name === 'vclass' ? 'Class' : facetGroup.name === 'trany' ? 'Transmission' : facetGroup.name === 'fueltype' ? 'Fuel Type' : facetGroup.name.charAt(0).toUpperCase() + facetGroup.name.slice(1)} :
                     </Text>
                     </View>
-                    {facetGroup.facets.map((facet) => (
-                        <TouchableOpacity onPress={() => navigation.navigate('searchedModel', facet)}>
-                            <Text style={globalStyles.TextMenuCar} key={index}>{facet.name}</Text>
+                    {facetGroup.facets.map((facet, idx) => (
+                        <TouchableOpacity onPress={() => navigation.navigate('searchedModel', facet)} key={`facet-${idx}`}>
+                            <Text style={globalStyles.TextMenuCar} key={`facet-${idx}`}>{facet.name}</Text>
                         </TouchableOpacity>
                     ))}
                 </View>
