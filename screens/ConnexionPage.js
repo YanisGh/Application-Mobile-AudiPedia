@@ -13,7 +13,11 @@ export default function ConnexionPage({ navigation }) {
   const data = {userName: name, isLoggedIn};
 
   const goHome = () => {
-    navigation.navigate('Home', { userName: name, isLoggedIn });
+    navigation.navigate('Home', { userName: name, isLoggedIn : true });
+
+  };
+  const goHomeNoAccount = () => {
+    navigation.navigate('Home', { isLoggedIn : false});
   };
   
 
@@ -28,7 +32,6 @@ export default function ConnexionPage({ navigation }) {
         (tx, results) => {
           //Alert.alert('5')
           if (results.rows.length > 0) {
-            setisLoggedin(true);
             goHome();
           } else {
             Alert.alert('Incorrect name or password');
@@ -51,6 +54,8 @@ export default function ConnexionPage({ navigation }) {
             tx.executeSql('INSERT INTO names (name, password) VALUES (?, ?)', [name, password]
             );
             Alert.alert('Account created. You can now connect to it using the credentials you have provided');
+            setname('');
+            setPassword('');
           }
         },
         (txObj, error) => console.log(error)
@@ -90,7 +95,7 @@ export default function ConnexionPage({ navigation }) {
                 Sign up</Text>
             </Pressable>
             </View>
-            <Pressable onPress={goHome}>
+            <Pressable onPress={goHomeNoAccount}>
               <Text style={globalStyles.TextMenu}>Browse without an account</Text>
             </Pressable>
           </View>

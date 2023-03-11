@@ -28,6 +28,8 @@ export default function Home({navigation}){
 
     return(
         <View style={globalStyles.container}>
+            {console.log(name)}
+            {console.log(isLoggedIn)}
             <View style={globalStyles.logoContainer}>
                 <Image
                     style={globalStyles.logoImg}
