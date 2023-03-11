@@ -7,7 +7,6 @@ export default function searchedModel({ navigation }){
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const model = (navigation.getParam('name'));
-    let nbModels = 0;
     const url ="https://public.opendatasoft.com/api/records/1.0/search/?dataset=all-vehicles-model&q=&facet=make&facet=model&facet=cylinders&facet=drive&facet=fueltype&facet=trany&facet=vclass&facet=year&refine.make=Audi&refine.model="+ model +""
     
     useEffect(() =>{

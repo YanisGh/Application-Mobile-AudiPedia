@@ -1,8 +1,14 @@
 import React from "react";
-import { Button, StyleSheet, Text, TextInput, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
+import { Text, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { globalStyles } from '../globalStyles';
 
+
+
 export default function Home({navigation}){
+
+    const name = navigation.getParam('userName');
+    const isLoggedIn = navigation.getParam('isLoggedIn');
+
 
     const goETron= () => {
         navigation.navigate('AudiETron')
@@ -30,7 +36,10 @@ export default function Home({navigation}){
                 }} />
             </View>
             <Text style={globalStyles.TextMenu} onPress={database}>Vorsprung durch Technik</Text>
-            <View style={globalStyles.menuHome}>   
+            <View style={globalStyles.menuHome}>
+                {isLoggedIn ? <Text style={globalStyles.TextMenu}>Logged In, Welcome {name}</Text> :
+                <Text style={globalStyles.TextMenu}>Not logged in, Welcome</Text>}
+                   
                     <TouchableOpacity onPress={goETron}>
                         <ImageBackground
                         style={globalStyles.logoImgMenu}

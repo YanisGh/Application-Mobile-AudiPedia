@@ -7,59 +7,58 @@ import allModels from "../screens/allModels";
 import AudiETron from "../screens/AudiETron";
 import searchedModel from "../screens/searchedModel"
 import AudiSQ5 from "../screens/AudiSQ5";
-import Database from "../database";
+import Database from "../screens/Database";
 
 const screens = {
-    
     ConnexionPage: {
         screen: ConnexionPage,
         navigationOptions: {
             headerShown: false,
-          }
+        }
     },
     Home: {
         screen: Home,
         navigationOptions: {
             headerShown: false,
-          }
+        }
     },
     allModels: {
         screen: allModels,
         navigationOptions: {
             headerShown: false,
-          }
+        }
     },
     AudiR8: {
         screen: AudiR8,
         navigationOptions: {
             headerShown: false,
-          }
+        }
     },
     AudiSQ5: {
         screen: AudiSQ5,
         navigationOptions: {
             headerShown: false,
-          }
+        }
     },
     AudiETron: {
         screen: AudiETron,
         navigationOptions: {
             headerShown: false,
-          }
+        }
     },
     searchedModel: {
         screen: searchedModel,
         navigationOptions: {
             headerShown: false,
-          }
+        }
     },
     Database: {
         screen: Database,
         navigationOptions: {
             headerShown: false,
-          }
+        }
     },
-    }
+};
 
 const HomeStack = createStackNavigator(screens);
 

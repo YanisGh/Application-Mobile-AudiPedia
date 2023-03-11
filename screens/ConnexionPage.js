@@ -2,55 +2,55 @@ import { useState } from 'react';
 import { Text, TextInput, View, Image, Pressable, Alert } from 'react-native';
 import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/KeyboardAvoidingView';
 import { globalStyles } from '../globalStyles';
-import * as SQLite from 'expo-sqlite';
-import Database from '../database';
+import { db } from './Database';
+
 
 export default function ConnexionPage({ navigation }) {
 
-  const [db, setDb] = useState(SQLite.openDatabase('example.db'));
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [isLoggedIn, setisLoggedin] = useState(false)
-
-  db.transaction(tx => {
-    tx.executeSql('CREATE TABLE IF NOT EXISTS names (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, password TEXT)')
-  });
+  const [name, setname] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoggedIn, setisLoggedin] = useState(false);
+  const data = {userName: name, isLoggedIn};
 
   const goHome = () => {
-    navigation.navigate('Home')
-  }
+    navigation.navigate('Home', { userName: name, isLoggedIn });
+  };
+  
 
   const handleSignIn = () => {
+    //Alert.alert('1');
     db.transaction((tx) => {
+      //Alert.alert('2');
       tx.executeSql(
-        'SELECT * FROM users WHERE email = ? AND password = ?',
-        [email, password],
+        'SELECT * FROM names WHERE name = ? AND password = ?',
+        [name, password],
+        //Alert.alert('4'),
         (tx, results) => {
+          //Alert.alert('5')
           if (results.rows.length > 0) {
-            // User exists, log them in and navigate to home screen
+            setisLoggedin(true);
             goHome();
           } else {
-            Alert.alert('Incorrect email or password');
+            Alert.alert('Incorrect name or password');
           }
-        }
+        },
+        //Alert.alert('6')
       );
     });
-  }
-  const handleSignUp = (email, password) => {
+  };
+  
+  const handleSignUp = () => {
     db.transaction(tx => {
-      tx.executeSql('SELECT * FROM users WHERE email = ?', [email],
+      tx.executeSql('SELECT * FROM names WHERE name = ?', [name],
         (txObj, resultSet) => {
-          // Check if user with given email already exists in database
+          // Check if user with given name already exists in database
           if (resultSet.rows.length > 0) {
-            console.log('User with email already exists');
+            Alert.alert("The account you're trying to create already exists.");
           } else {
-            // If user with email doesn't exist, insert new user into database
-            tx.executeSql('INSERT INTO users (email, password) VALUES (?, ?)', [email, password],
-              (txObj, resultSet) => {
-                console.log('User signed up successfully');
-              },
-              (txObj, error) => console.log(error)
+            // If user with name doesn't exist, insert new user into database
+            tx.executeSql('INSERT INTO names (name, password) VALUES (?, ?)', [name, password]
             );
+            Alert.alert('Account created. You can now connect to it using the credentials you have provided');
           }
         },
         (txObj, error) => console.log(error)
@@ -75,7 +75,7 @@ export default function ConnexionPage({ navigation }) {
           <KeyboardAvoidingView behavior="padding">
           <View style={globalStyles.containerForm}>
             <Text style={globalStyles.Text}>Your username or e-mail adress :</Text>
-            <TextInput style={globalStyles.input} placeholder="Username or e-mail adress" onChangeText={text => setEmail(text)} />
+            <TextInput style={globalStyles.input} placeholder="Username or e-mail adress" onChangeText={text => setname(text)} />
 
             <Text style={globalStyles.Text}>Your password :</Text>
             <TextInput style={globalStyles.input} placeholder="Password" onChangeText={text => setPassword(text)} />
@@ -98,4 +98,4 @@ export default function ConnexionPage({ navigation }) {
         
       </View>
     );
-  }
+}
