@@ -7,6 +7,7 @@ import allModels from "../screens/allModels";
 import AudiETron from "../screens/AudiETron";
 import searchedModel from "../screens/searchedModel"
 import AudiSQ5 from "../screens/AudiSQ5";
+import Database from "../database";
 
 const screens = {
     
@@ -48,6 +49,12 @@ const screens = {
     },
     searchedModel: {
         screen: searchedModel,
+        navigationOptions: {
+            headerShown: false,
+          }
+    },
+    Database: {
+        screen: Database,
         navigationOptions: {
             headerShown: false,
           }

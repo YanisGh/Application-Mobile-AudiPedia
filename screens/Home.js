@@ -16,6 +16,9 @@ export default function Home({navigation}){
     const goAllModels = () =>{
         navigation.navigate('allModels')
     }
+    const database = () =>{
+        navigation.navigate('Database')
+    }
 
     return(
         <View style={globalStyles.container}>
@@ -26,7 +29,7 @@ export default function Home({navigation}){
                     uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png',
                 }} />
             </View>
-            <Text style={globalStyles.TextMenu}>Vorsprung durch Technik</Text>
+            <Text style={globalStyles.TextMenu} onPress={database}>Vorsprung durch Technik</Text>
             <View style={globalStyles.menuHome}>   
                     <TouchableOpacity onPress={goETron}>
                         <ImageBackground
