@@ -34,7 +34,7 @@ export default function allModels({navigation}){
             <ImageBackground
             style={globalStyles.logoImgMenu}
             source={{
-                uri : 'https://assetseu-h2.izmocars.com/userfiles/105587/header_gammeaudisport.jpg',
+                uri : 'https://www.audi.com/content/dam/gbp2/experience-audi/models-and-technology/production-models/1920x1440_A189584_large.jpg?imwidth=1920&imdensity=1',
             }}>
             </ImageBackground> 
             <Text style={{color : "white", fontFamily : "audi-bold-extended", marginBottom : 7}}>Tap on a model for more details.</Text>

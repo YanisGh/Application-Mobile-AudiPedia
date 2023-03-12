@@ -8,6 +8,7 @@ import AudiETron from "../screens/AudiETron";
 import searchedModel from "../screens/searchedModel"
 import AudiSQ5 from "../screens/AudiSQ5";
 import Database from "../screens/Database";
+import Favorites from "../screens/Favorites";
 
 const screens = {
     ConnexionPage: {
@@ -59,6 +60,12 @@ const screens = {
             headerShown: false,
         }
     },
+    Favorites: {
+        screen: Favorites,
+        navigationOptions: {
+            headerShown: false,
+        }
+    }
 };
 
 const HomeStack = createStackNavigator(screens);

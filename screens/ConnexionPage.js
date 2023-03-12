@@ -10,11 +10,11 @@ export default function ConnexionPage({ navigation }) {
   const [name, setname] = useState('');
   const [password, setPassword] = useState('');
   const [isLoggedIn, setisLoggedin] = useState(false);
+
   const data = {userName: name, isLoggedIn};
 
   const goHome = () => {
     navigation.navigate('Home', { userName: name, isLoggedIn : true });
-
   };
   const goHomeNoAccount = () => {
     navigation.navigate('Home', { isLoggedIn : false});
@@ -32,8 +32,12 @@ export default function ConnexionPage({ navigation }) {
         (tx, results) => {
           //Alert.alert('5')
           if (results.rows.length > 0) {
+            setname(undefined);
+            setPassword(undefined);
             goHome();
           } else {
+            setname(undefined);
+            setPassword(undefined);
             Alert.alert('Incorrect name or password');
           }
         },
@@ -53,6 +57,8 @@ export default function ConnexionPage({ navigation }) {
             // If user with name doesn't exist, insert new user into database
             tx.executeSql('INSERT INTO names (name, password) VALUES (?, ?)', [name, password]
             );
+            setname(undefined);
+            setPassword(undefined);
             Alert.alert('Account created. You can now connect to it using the credentials you have provided');
           }
         },
@@ -78,10 +84,10 @@ export default function ConnexionPage({ navigation }) {
           <KeyboardAvoidingView behavior="padding">
           <View style={globalStyles.containerForm}>
             <Text style={globalStyles.Text}>Your username or e-mail adress :</Text>
-            <TextInput style={globalStyles.input} placeholder="Username or e-mail adress" onChangeText={text => setname(text)} />
+            <TextInput style={globalStyles.input} value={name} placeholder="Username or e-mail adress" onChangeText={text => setname(text)} />
 
             <Text style={globalStyles.Text}>Your password :</Text>
-            <TextInput style={globalStyles.input} placeholder="Password" onChangeText={text => setPassword(text)} />
+            <TextInput style={globalStyles.input} value={password} placeholder="Password" onChangeText={text => setPassword(text)} />
 
             <Text style={globalStyles.Test}>Already have an account ?</Text>
             <Pressable onPress={handleSignIn}>

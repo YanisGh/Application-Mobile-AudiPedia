@@ -86,6 +86,14 @@ export const globalStyles = StyleSheet.create({
     TextMenuImgAllModels :{
       fontFamily: "audi-bold-extended",
       textAlign: "center",
+      marginTop: 105,
+      marginBottom: 5,
+      color: "white",
+      fontSize: 12,
+    },
+    TextMenuImgFav :{
+      fontFamily: "audi-bold-extended",
+      textAlign: "center",
       marginTop: 10,
       marginBottom: 5,
       color: "white",
