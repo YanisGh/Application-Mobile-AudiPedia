@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Text, View, Image, ImageBackground, TouchableOpacity, Alert } from 'react-native';
+import { Text, View, Image, ImageBackground, TouchableOpacity, Alert, Pressable, TouchableWithoutFeedback } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
 import { globalStyles } from '../globalStyles';
 import { db } from './Database';
@@ -43,23 +43,28 @@ export default function searchedModel({ navigation }){
             />
           </View>
           <View style={globalStyles.menuHome}>
-            <TouchableOpacity onPress={addToFav}>
-              <ImageBackground
-                style={globalStyles.logoImgMenu}
-                source={{
-                  uri: 'https://media4.speedcafe.com/wp-content/uploads/2020/09/637241-scaled.jpg',
-                }}
-              ></ImageBackground>
-            </TouchableOpacity>
-            {console.log(model)}
-            {console.log(userName)}
+            <ImageBackground
+              style={globalStyles.logoImgMenu}
+              source={{
+                uri: 'https://media4.speedcafe.com/wp-content/uploads/2020/09/637241-scaled.jpg',
+              }}
+            >
+            <TouchableWithoutFeedback onPress={addToFav}>
+              <Image
+                style={{ position: 'absolute', top: 5, right: 12, width: 30, height: 30, tintColor : "white" }}
+                source={require('../images/icons/favorite-large-2x.png')}
+              />
+            </TouchableWithoutFeedback>
+            </ImageBackground>
+            {/* {console.log(model)}
+            {console.log(userName)} */}
             {loading ? (
                 <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>
                 ) : data && data.length > 0 ? (
                   <ScrollView>
                   {
                       data.map((facetGroup, index) => (
-                      <View style={globalStyles.containerInfoCar} key={index}>
+                      <View style={globalStyles.containerInfoCar} key={facetGroup.name}>
                           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                           {facetGroup.name === 'vclass' ? (
                               <Image

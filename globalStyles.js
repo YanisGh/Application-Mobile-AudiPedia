@@ -28,7 +28,6 @@ export const globalStyles = StyleSheet.create({
       height: 650,
       width: 500,
       backgroundColor: 'black',
-      marginTop: 20
     },
     TextMenu :{
       textAlign: "center",
@@ -150,10 +149,21 @@ export const globalStyles = StyleSheet.create({
       width: 150
 
     },
+    ButtonFav:{
+      fontFamily: "audi-bold",
+      borderRadius: 6,
+      alignContent: "center",
+      backgroundColor: '#1a1a1a',
+      marginTop: 5,
+      marginBottom: 20,
+      padding: 10,
+      width: 150
+    },
     logoImg:{
       width: 100,
       height: 35,
       resizeMode: 'center',
+      marginBottom: 30,
     },
     logoLog: {
       width: 35,

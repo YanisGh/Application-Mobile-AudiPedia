@@ -21,15 +21,16 @@ export default function ConnexionPage({ navigation }) {
   
 
   const handleSignIn = () => {
-    //Alert.alert('1');
+    if (!name || !password) {
+      // Alert the user that name or password is missing
+      Alert.alert('Please enter your name and password');
+      return;
+    }
     db.transaction((tx) => {
-      //Alert.alert('2');
       tx.executeSql(
         'SELECT * FROM names WHERE name = ? AND password = ?',
         [name, password],
-        //Alert.alert('4'),
         (tx, results) => {
-          //Alert.alert('5')
           if (results.rows.length > 0) {
             setname(undefined);
             setPassword(undefined);
@@ -40,12 +41,16 @@ export default function ConnexionPage({ navigation }) {
             Alert.alert('Incorrect name or password');
           }
         },
-        //Alert.alert('6')
       );
     });
   };
   
   const handleSignUp = () => {
+    if (!name || !password) {
+      // Alert the user that name or password is missing
+      Alert.alert('Please enter your name and password');
+      return;
+    }
     db.transaction(tx => {
       tx.executeSql('SELECT * FROM names WHERE name = ?', [name],
         (txObj, resultSet) => {
@@ -86,7 +91,7 @@ export default function ConnexionPage({ navigation }) {
             <TextInput style={globalStyles.input} value={name} placeholder="Username or e-mail adress" onChangeText={text => setname(text)} />
 
             <Text style={globalStyles.Text}>Your password :</Text>
-            <TextInput style={globalStyles.input} value={password} placeholder="Password" onChangeText={text => setPassword(text)} />
+            <TextInput style={globalStyles.input} value={password} placeholder="Password" onChangeText={text => setPassword(text)} secureTextEntry />
 
             <Text style={globalStyles.Test}>Already have an account ?</Text>
             <Pressable onPress={handleSignIn}>
@@ -94,8 +99,7 @@ export default function ConnexionPage({ navigation }) {
             </Pressable>
             <View style={{alignItems: "center"}}>
             <Pressable style={globalStyles.Button}onPress={handleSignUp}>
-              <Text style={globalStyles.TestUnderline}>
-                Sign up</Text>
+              <Text style={globalStyles.TestUnderline}>Sign up</Text>
             </Pressable>
             </View>
             <Pressable onPress={goHomeNoAccount}>

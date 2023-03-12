@@ -30,7 +30,6 @@ export default function allModels({navigation}){
                     uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png',
                 }} />
             </View>
-            <Text style={globalStyles.TextMenu}></Text>
             <View style={globalStyles.menuHome}>   
             <ImageBackground
             style={globalStyles.logoImgMenu}
@@ -41,7 +40,7 @@ export default function allModels({navigation}){
             <Text style={{color : "white", fontFamily : "audi-bold-extended", marginBottom : 7}}>Tap on a model for more details.</Text>
             <ScrollView>
             {loading ? (
-                <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>
+                <Text style={globalStyles.TextMenuImg}>Loading all models...</Text>
                 ) : (
                 data.map((facetGroup, index) => (
                     <View style={globalStyles.containerInfoCar} key={`group-${index}`}>

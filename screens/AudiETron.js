@@ -30,7 +30,6 @@ export default function AudiETron(){
                     uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png',
                 }} />
             </View>
-            <Text style={globalStyles.TextMenu}></Text>
             <View style={globalStyles.menuHome}>   
             <TouchableOpacity>
                 <ImageBackground

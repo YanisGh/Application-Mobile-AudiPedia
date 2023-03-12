@@ -19,9 +19,6 @@ export default function Home({navigation}){
     const goAllModels = () =>{
         navigation.navigate('allModels', { userName: name })
     }
-    const database = () =>{
-        navigation.navigate('Database')
-    }
     const goCon = () =>{
         navigation.navigate('ConnexionPage')
     }
@@ -34,23 +31,13 @@ export default function Home({navigation}){
             {/* {console.log(name)}
             {console.log(isLoggedIn)} */}
             <View style={globalStyles.logoContainer}>
-                {/* image 1*/}
-                <Image
-                    style={{
-                        width: 100,
-                        height: 35
-                      }}
-                    source={{
-                    uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png',
-                }} />
+                <Image style={{width: 100,height: 35}}source={{uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png' }} />
                 <TouchableOpacity onPress={goCon}>
                 {isLoggedIn ? 
-                /* image 2*/
                 <Image
                     source={require('../images/icons/logout-large-2x.png')}
                     style={{ width: 35, height: 35, tintColor: "white", textAlign: "right"}}
                 /> :
-                /* image 2*/ 
                 <Image
                     source={require('../images/icons/login-large-2x.png')}
                     style={{ width: 35, height: 35, tintColor: "white", textAlign: "right"}}
@@ -58,7 +45,7 @@ export default function Home({navigation}){
                 }
                 </TouchableOpacity>
             </View>
-            <Text style={globalStyles.TextMenu} onPress={database}>Vorsprung durch Technik</Text>
+            <Text style={globalStyles.TextMenu}>Vorsprung durch Technik</Text>
             {isLoggedIn ?
             <ScrollView>
             <Text style={globalStyles.TextMenu}>Welcome {name}</Text> 
