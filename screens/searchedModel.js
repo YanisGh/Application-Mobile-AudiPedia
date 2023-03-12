@@ -22,12 +22,14 @@ export default function searchedModel({ navigation }){
       }, []);
 
       const addToFav = () => {
+        {userName == null ? Alert.alert("You have to be logged in in order to add favorites.") :
           db.transaction(tx => {
-          tx.executeSql('INSERT INTO favorites (model, name) values (?,?)', [model, userName], 
-          (txObj, error) => console.log(error),
-          Alert.alert("Model favorited")
-        );
+            tx.executeSql('INSERT INTO favorites (model, name) values (?,?)', [model, userName], 
+            (txObj, error) => console.log(error),
+            Alert.alert("Model favorited")
+          );
         });
+       }
       }
 
       return (
