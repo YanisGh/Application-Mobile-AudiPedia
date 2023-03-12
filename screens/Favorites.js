@@ -44,16 +44,13 @@ export default function favorite({navigation}){
                     uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png',
                 }} />
             </View>
-            <Text style={globalStyles.TextMenu}></Text>
             <View style={globalStyles.menuHome}>   
-            <TouchableOpacity>
-                <ImageBackground
-                style={globalStyles.logoImgMenu}
-                source={{
-                uri: 'https://uhdwallpapers.org/uploads/converted/21/02/10/audi-e-tron-gt-2021-1920x1080_947678-mm-90.webp',
-                }}>
-                </ImageBackground>  
-            </TouchableOpacity>
+            <ImageBackground
+            style={globalStyles.logoImgMenu}
+            source={{
+            uri: 'https://uhdwallpapers.org/uploads/converted/21/02/10/audi-e-tron-gt-2021-1920x1080_947678-mm-90.webp',
+            }}>
+            </ImageBackground>  
             <Text style={{color : "white", fontFamily : "audi-bold-extended", marginBottom : 7}}> You currently have {favs.length} favorited models</Text>
             <View style={globalStyles.containerFavCar}>
             {favs.map((fav, index) => {

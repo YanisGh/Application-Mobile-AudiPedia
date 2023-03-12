@@ -31,14 +31,12 @@ export default function AudiR8(){
                 }} />
             </View>
             <View style={globalStyles.menuHome}>   
-            <TouchableOpacity>
-                <ImageBackground
-                style={globalStyles.logoImgMenu}
-                source={{
-                uri: 'https://media4.speedcafe.com/wp-content/uploads/2020/09/637241-scaled.jpg',
-                }}>
-                </ImageBackground>  
-            </TouchableOpacity>
+            <ImageBackground
+            style={globalStyles.logoImgMenu}
+            source={{
+            uri: 'https://media4.speedcafe.com/wp-content/uploads/2020/09/637241-scaled.jpg',
+            }}>
+            </ImageBackground>  
             <ScrollView>
                 {loading ? (
                     <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>

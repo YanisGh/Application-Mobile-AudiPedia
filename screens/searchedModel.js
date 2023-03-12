@@ -106,8 +106,8 @@ export default function searchedModel({ navigation }){
                               {facetGroup.name === 'vclass' ? 'Class' : facetGroup.name === 'trany' ? 'Transmission' : facetGroup.name === 'fueltype' ? 'Fuel Type' : facetGroup.name.charAt(0).toUpperCase() + facetGroup.name.slice(1)} :
                           </Text>
                           </View>
-                          {facetGroup.facets.map((facet) => (
-                              <Text style={globalStyles.TextMenuCar}>{facet.name}</Text>
+                          {facetGroup.facets.map((facet, index) => (
+                            <Text key={index} style={globalStyles.TextMenuCar}>{facet.name}</Text>
                           ))}
                       </View>
                       ))

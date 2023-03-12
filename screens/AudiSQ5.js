@@ -29,14 +29,12 @@ export default function AudiSQ5(){
                 }} />
             </View>
             <View style={globalStyles.menuHome}>   
-            <TouchableOpacity>
-                <ImageBackground
-                style={globalStyles.logoImgMenu}
-                source={{
-                uri: 'https://cdn.motor1.com/images/mgl/eJZqP/s1/2021-audi-sq5-sportback-tdi.jpg',
-                }}>
-                </ImageBackground>  
-            </TouchableOpacity>
+            <ImageBackground
+            style={globalStyles.logoImgMenu}
+            source={{
+            uri: 'https://cdn.motor1.com/images/mgl/eJZqP/s1/2021-audi-sq5-sportback-tdi.jpg',
+            }}>
+            </ImageBackground>  
             <ScrollView>
                 {loading ? (
                     <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>

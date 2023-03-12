@@ -31,14 +31,12 @@ export default function AudiETron(){
                 }} />
             </View>
             <View style={globalStyles.menuHome}>   
-            <TouchableOpacity>
-                <ImageBackground
-                style={globalStyles.logoImgMenu}
-                source={{
-                uri: 'https://uhdwallpapers.org/uploads/converted/21/02/10/audi-e-tron-gt-2021-1920x1080_947678-mm-90.webp',
-                }}>
-                </ImageBackground>  
-            </TouchableOpacity>
+            <ImageBackground
+            style={globalStyles.logoImgMenu}
+            source={{
+            uri: 'https://uhdwallpapers.org/uploads/converted/21/02/10/audi-e-tron-gt-2021-1920x1080_947678-mm-90.webp',
+            }}>
+            </ImageBackground>  
             <ScrollView>
                 {loading ? (
                     <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>

@@ -31,16 +31,16 @@ export default function Home({navigation}){
             {/* {console.log(name)}
             {console.log(isLoggedIn)} */}
             <View style={globalStyles.logoContainer}>
-                <Image style={{width: 100,height: 35}}source={{uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png' }} />
+                <Image style={{width: 100,height: 35, marginTop : 30}}source={{uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png' }} />
                 <TouchableOpacity onPress={goCon}>
                 {isLoggedIn ? 
                 <Image
                     source={require('../images/icons/logout-large-2x.png')}
-                    style={{ width: 35, height: 35, tintColor: "white", textAlign: "right"}}
+                    style={{ position: 'absolute', bottom: 5, left : 95, width: 30, height: 30, tintColor : "white" }}
                 /> :
                 <Image
                     source={require('../images/icons/login-large-2x.png')}
-                    style={{ width: 35, height: 35, tintColor: "white", textAlign: "right"}}
+                    style={{ position: 'absolute', bottom: 5, left : 95, width: 30, height: 30, tintColor : "white" }}
                 />
                 }
                 </TouchableOpacity>
@@ -93,7 +93,7 @@ export default function Home({navigation}){
                     </ImageBackground>  
                 </TouchableOpacity>
             </ScrollView> :
-            <View style={globalStyles.menuHome}>
+            <View style={globalStyles.menuHomeMain}>
             {isLoggedIn ? <Text style={globalStyles.TextMenu}>Logged In, Welcome {name}</Text> :
             <Text style={globalStyles.TextMenu}>Not logged in, Welcome</Text>}
                

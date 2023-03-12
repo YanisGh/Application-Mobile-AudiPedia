@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 export const globalStyles = StyleSheet.create({
     logoContainer:{
       flexDirection: "row",
-      marginTop: 40,
+      marginTop: 30,
     },
     container: {
       flex: 1,
@@ -28,6 +28,13 @@ export const globalStyles = StyleSheet.create({
       height: 650,
       width: 500,
       backgroundColor: 'black',
+    },
+    menuHomeMain :{
+      alignItems: "center",
+      height: 650,
+      width: 500,
+      backgroundColor: 'black',
+      marginTop : 40
     },
     TextMenu :{
       textAlign: "center",
@@ -164,6 +171,7 @@ export const globalStyles = StyleSheet.create({
       height: 35,
       resizeMode: 'center',
       marginBottom: 30,
+      marginTop : 30
     },
     logoLog: {
       width: 35,
