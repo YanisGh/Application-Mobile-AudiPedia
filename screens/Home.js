@@ -126,10 +126,8 @@ export default function Home({navigation}){
 
                 <TouchableOpacity onPress={goAllModels}>
                     <ImageBackground
-                    style={globalStyles.logoImgMenu}
-                    source={{
-                        uri : 'https://herbchambers.s3.us-east-1.amazonaws.com/lp/audi/2020/near-me/header.jpg',
-                    }}><Text style={globalStyles.TextMenuImgAllModels}>All models</Text>
+                    style={globalStyles.logoImgMenu} source={{uri : 'https://www.audi-sxm.com/content/dam/nemo/aola/Latin-America-general/2021/September/News/Vosprung2030/Header1400x434_Vorsprung2030.jpg?imwidth=1920',}}>
+                    <Text style={globalStyles.TextMenuImgAllModels}>All models</Text>
                     </ImageBackground>  
                 </TouchableOpacity>
             </View>

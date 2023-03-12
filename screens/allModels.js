@@ -38,6 +38,7 @@ export default function allModels({navigation}){
             }}>
             </ImageBackground> 
             <Text style={{color : "white", fontFamily : "audi-bold-extended", marginBottom : 7}}>Tap on a model for more details.</Text>
+            <View style={{ height : 590}}>
             <ScrollView>
             {loading ? (
                 <Text style={globalStyles.TextMenuImg}>Loading all models...</Text>
@@ -69,6 +70,8 @@ export default function allModels({navigation}){
                 ))
             )}
             </ScrollView>
+            </View>
+            
             </View>
         </View>
     )

@@ -58,6 +58,7 @@ export default function searchedModel({ navigation }){
             </ImageBackground>
             {/* {console.log(model)}
             {console.log(userName)} */}
+            <View style={{height : 600}}>
             {loading ? (
                 <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>
                 ) : data && data.length > 0 ? (
@@ -116,6 +117,7 @@ export default function searchedModel({ navigation }){
                 ) : (
                     <Text style={globalStyles.TextMenuCar}>No results found.</Text>
                 )}
+            </View>
           </View>
         </View>
       );

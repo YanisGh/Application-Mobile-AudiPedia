@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
 
-
 export const globalStyles = StyleSheet.create({
     logoContainer:{
       flexDirection: "row",
@@ -155,16 +154,6 @@ export const globalStyles = StyleSheet.create({
       padding: 20,
       width: 150
 
-    },
-    ButtonFav:{
-      fontFamily: "audi-bold",
-      borderRadius: 6,
-      alignContent: "center",
-      backgroundColor: '#1a1a1a',
-      marginTop: 5,
-      marginBottom: 20,
-      padding: 10,
-      width: 150
     },
     logoImg:{
       width: 100,
