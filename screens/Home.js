@@ -2,8 +2,6 @@ import React from "react";
 import { Text, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
 import { globalStyles } from '../globalStyles';
 
-
-
 export default function Home({navigation}){
 
     const name = navigation.getParam('userName');
@@ -25,17 +23,38 @@ export default function Home({navigation}){
     const database = () =>{
         navigation.navigate('Database')
     }
+    const goCon = () =>{
+        navigation.navigate('ConnexionPage')
+    }
 
     return(
         <View style={globalStyles.container}>
-            {console.log(name)}
-            {console.log(isLoggedIn)}
+            {/* {console.log(name)}
+            {console.log(isLoggedIn)} */}
             <View style={globalStyles.logoContainer}>
+                {/* image 1*/}
                 <Image
-                    style={globalStyles.logoImg}
+                    style={{
+                        width: 100,
+                        height: 35
+                      }}
                     source={{
                     uri: 'https://pnggrid.com/wp-content/uploads/2021/04/white-audi-logo-1024x356.png',
                 }} />
+                <TouchableOpacity onPress={goCon}>
+                {isLoggedIn ? 
+                /* image 2*/
+                <Image
+                    source={require('../images/icons/logout-large-2x.png')}
+                    style={{ width: 35, height: 35, tintColor: "white", textAlign: "right"}}
+                /> :
+                /* image 2*/ 
+                <Image
+                    source={require('../images/icons/login-large-2x.png')}
+                    style={{ width: 35, height: 35, tintColor: "white", textAlign: "right"}}
+                />
+                }
+                </TouchableOpacity>
             </View>
             <Text style={globalStyles.TextMenu} onPress={database}>Vorsprung durch Technik</Text>
             <View style={globalStyles.menuHome}>

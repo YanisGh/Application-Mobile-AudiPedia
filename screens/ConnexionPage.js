@@ -54,8 +54,6 @@ export default function ConnexionPage({ navigation }) {
             tx.executeSql('INSERT INTO names (name, password) VALUES (?, ?)', [name, password]
             );
             Alert.alert('Account created. You can now connect to it using the credentials you have provided');
-            setname('');
-            setPassword('');
           }
         },
         (txObj, error) => console.log(error)

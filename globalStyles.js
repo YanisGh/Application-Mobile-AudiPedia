@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 
 export const globalStyles = StyleSheet.create({
     logoContainer:{
+      flexDirection: "row",
       marginTop: 40,
     },
     container: {
@@ -145,6 +146,12 @@ export const globalStyles = StyleSheet.create({
       width: 100,
       height: 35,
       resizeMode: 'center',
+    },
+    logoLog: {
+      width: 35,
+      height: 35,
+      tintColor: "white",
+      textAlign: "right",
     }, 
     iconFacet:{
       width: 20, 

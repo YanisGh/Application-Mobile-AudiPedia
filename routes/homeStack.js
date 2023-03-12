@@ -20,6 +20,7 @@ const screens = {
         screen: Home,
         navigationOptions: {
             headerShown: false,
+            gestureEnabled: false
         }
     },
     allModels: {
