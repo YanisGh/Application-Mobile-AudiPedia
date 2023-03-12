@@ -6,6 +6,7 @@ import { globalStyles } from '../globalStyles';
 export default function allModels({navigation}){
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
+    const [userName, setName] = useState(navigation.getParam('userName'));
     
     
     const url ="https://public.opendatasoft.com/api/records/1.0/search/?dataset=all-vehicles-model&q=&sort=year&facet=model&refine.make=Audi"
@@ -61,7 +62,7 @@ export default function allModels({navigation}){
                     </Text>
                     </View>
                     {facetGroup.facets.map((facet, idx) => (
-                        <TouchableOpacity onPress={() => navigation.navigate('searchedModel', facet)} key={`facet-${idx}`}>
+                        <TouchableOpacity onPress={() => navigation.navigate('searchedModel', {facet: facet.name, userName: userName})} key={`facet-${idx}`}>
                             <Text style={globalStyles.TextMenuCar} key={`facet-${idx}`}>{facet.name}</Text>
                         </TouchableOpacity>
                     ))}

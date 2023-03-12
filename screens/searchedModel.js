@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from "react";
-import { Text, View, Image, ImageBackground, TouchableOpacity } from 'react-native';
+import { Text, View, Image, ImageBackground, TouchableOpacity, Alert } from 'react-native';
 import { ScrollView } from "react-native-gesture-handler";
 import { globalStyles } from '../globalStyles';
+import { db } from './Database';
 
 export default function searchedModel({ navigation }){
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
-    const model = (navigation.getParam('name'));
+    const userName = (navigation.getParam('userName'));
+    const model = (navigation.getParam('facet'));
     const url ="https://public.opendatasoft.com/api/records/1.0/search/?dataset=all-vehicles-model&q=&facet=make&facet=model&facet=cylinders&facet=drive&facet=fueltype&facet=trany&facet=vclass&facet=year&refine.make=Audi&refine.model="+ model +""
     
     useEffect(() =>{
@@ -19,6 +21,15 @@ export default function searchedModel({ navigation }){
           .catch((error) => console.error(error));
       }, []);
 
+      const addToFav = () => {
+          db.transaction(tx => {
+          tx.executeSql('INSERT INTO favorites (model, name) values (?,?)', [model, userName], 
+          (txObj, error) => console.log(error),
+          Alert.alert("Model favorited")
+        );
+        });
+      }
+
       return (
         <View style={globalStyles.container}>
           <View style={globalStyles.logoContainer}>
@@ -29,9 +40,8 @@ export default function searchedModel({ navigation }){
               }}
             />
           </View>
-          <Text style={globalStyles.TextMenu}></Text>
           <View style={globalStyles.menuHome}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={addToFav}>
               <ImageBackground
                 style={globalStyles.logoImgMenu}
                 source={{
@@ -39,6 +49,8 @@ export default function searchedModel({ navigation }){
                 }}
               ></ImageBackground>
             </TouchableOpacity>
+            {console.log(model)}
+            {console.log(userName)}
             {loading ? (
                 <Text style={globalStyles.TextMenuImg}>Loading all data for the model...</Text>
                 ) : data && data.length > 0 ? (

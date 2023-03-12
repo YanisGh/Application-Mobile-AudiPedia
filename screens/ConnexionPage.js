@@ -4,7 +4,6 @@ import KeyboardAvoidingView from 'react-native/Libraries/Components/Keyboard/Key
 import { globalStyles } from '../globalStyles';
 import { db } from './Database';
 
-
 export default function ConnexionPage({ navigation }) {
 
   const [name, setname] = useState('');

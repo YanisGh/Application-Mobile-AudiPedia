@@ -17,7 +17,7 @@ export default function Home({navigation}){
         navigation.navigate('AudiSQ5')
       }
     const goAllModels = () =>{
-        navigation.navigate('allModels')
+        navigation.navigate('allModels', { userName: name })
     }
     const database = () =>{
         navigation.navigate('Database')

@@ -11,7 +11,6 @@ export default function favorite({navigation}){
     useEffect(() => {
     
       db.transaction(tx => {
-        console.log("User id at " + [name] + " before Value")
         tx.executeSql('SELECT * FROM favorites WHERE name = ?', [name],
           (txObj, resultSet) => setFavs(resultSet.rows._array),
           (txObj, error) => console.log(error + "error 2"),
@@ -20,18 +19,21 @@ export default function favorite({navigation}){
       
     
     }, [db, userID]); // include userID in the dependency array
-    
 
-      const showFavs = () => {
-        return favs.map((fav, index) => {
-          return (
-            <View key={index} style={globalStyles.containerInfoCar}>
-              <Text style={{color: 'white'}}>{fav.model}</Text>
-              <Button title='Delete' />
-            </View>
-          );
-        });
-      };
+    const deleteModel = (model) => {
+      db.transaction(tx => {
+        tx.executeSql('DELETE FROM favorites WHERE model = ? and name = ?', [model, name],
+        (txObj, resultSet) => {
+          if (resultSet.rowsAffected > 0) {
+            let existingFavs = [...favs].filter(favs => favs.model !== model);
+            setFavs(existingFavs);
+            Alert.alert("Model Deleted")
+          }
+        },
+        (txObj, error) => console.log(error)
+        );
+      });
+    }
 
     return(
         <View style={globalStyles.container}>
@@ -53,16 +55,29 @@ export default function favorite({navigation}){
                 </ImageBackground>  
             </TouchableOpacity>
             <Text style={{color : "white", fontFamily : "audi-bold-extended", marginBottom : 7}}> You currently have {favs.length} favorited models</Text>
-              <View style={globalStyles.containerInfoCar}>
-                {favs.map((fav, index) => {
-                  return (
-                    <TouchableOpacity key={index} onPress={() => navigation.navigate('searchedModel', { name : fav.model })} style={globalStyles.containerInfoCar}>
-                      <Text style={globalStyles.TextMenuCar}>{fav.model}</Text>
+            <View style={globalStyles.containerFavCar}>
+            {favs.map((fav, index) => {
+              return (
+                <TouchableOpacity key={index} onPress={() =>navigation.navigate("searchedModel", { facet : fav.model })} style={globalStyles.containerInfoCar}>
+                  <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+                    <Text style={globalStyles.TextMenuCar}>{fav.model}</Text>
+                    <TouchableOpacity onPress={() => deleteModel(fav.model)}>
+                      <Image
+                        source={require('../images/icons/erase-large-2x.png')}
+                        style={{ width: 20, height: 20, Textalign: "right", marginRight : 15, tintColor : "white"}}
+                      />
                     </TouchableOpacity>
-                  );
-                })}
-              </View>
+                  </View>
+                </TouchableOpacity>
+              );
+              })}
             </View>
+
+
+            </View>
+            {console.log(name)}
+            
         </View>
+        
     )
 }
