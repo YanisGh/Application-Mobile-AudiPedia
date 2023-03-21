@@ -21,7 +21,6 @@ This was my very first project in react native and the first time I used an API.
 ## Images : 
 
 ![clipboard](https://user-images.githubusercontent.com/69716716/226715440-919dfd8e-c0bf-467d-b4b5-bdb5b7d9864d.png)
-,,,,
 ![menu](https://user-images.githubusercontent.com/69716716/226715462-b44b8b07-c051-41dc-bb07-218b60735d4f.png)
 ![clipboard (6)](https://user-images.githubusercontent.com/69716716/226718138-f24e3b49-6433-4ab3-b921-757e1c772299.png)
 ![clipboard (5)](https://user-images.githubusercontent.com/69716716/226716404-fc0710c2-70ab-4499-97f9-d85cf2be6615.png)
