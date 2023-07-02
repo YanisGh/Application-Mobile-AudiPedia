@@ -23,7 +23,7 @@ I made sure to make good use of the brand's "digital resources" (such as icons, 
 Maquette de l'application sur Figma, avant sa réalisation :
 
 ![image](https://github.com/YanisGh/Application-Mobile-AudiPedia/assets/69716716/503ebeb7-cf21-47ec-b341-64d2f4b080d3)
-L'application final :
+L'application finale :
 
 ![clipboard](https://user-images.githubusercontent.com/69716716/226715440-919dfd8e-c0bf-467d-b4b5-bdb5b7d9864d.png)
 ![menu](https://user-images.githubusercontent.com/69716716/226715462-b44b8b07-c051-41dc-bb07-218b60735d4f.png)
